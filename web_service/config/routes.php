@@ -22,10 +22,6 @@ $router->map('DELETE', '/article/delete', function() {
     $articleController = new ArticleController();
     $articleController->delete();
 });
-$router->map('GET|POST', '/signup', function () {
-    $signupController = new SignupController();
-    $signupController->index();
-});
 $router->map('GET|POST', '/signin', function () {
     $signinController = new SigninController();
     $signinController->index();
@@ -34,4 +30,23 @@ $router->map('GET|POST', '/signout', function () {
     $signoutController = new SignoutController();
     $signoutController->index();
 });
-
+$router->map('GET', '/user', function () {
+    $userController = new UserController();
+    $userController->index();
+});
+$router->map('GET', '/user/show', function () {
+    $userController = new UserController();
+    $userController->show();
+});
+$router->map('PUT', '/user/edit', function () {
+    $userController = new UserController();
+    $userController->edit();
+});
+$router->map('DELETE', '/user/delete', function () {
+    $userController = new UserController();
+    $userController->delete();
+});
+$router->map('POST', '/signup', function () {
+    $signupController = new SignupController();
+    $signupController->index();
+});

@@ -6,7 +6,7 @@ class User
 {
     protected int $id_user;
     protected string $pseudo;
-    protected ?string $pwd;
+    protected ?string $pwd = null;
     protected string $email;
     protected string $created_at;
 
@@ -85,6 +85,7 @@ class User
         return $this->pwd;
     }
 
+
     /**
      * @param string $pwd
      */
@@ -128,5 +129,24 @@ class User
         $this->created_at = $created_at;
 
         return $this;
+    }
+
+    public function toArray(): array
+    {
+        return [
+            "id_user" => $this->id_user,
+            "pseudo" => $this->pseudo,
+            "pwd" => $this->pwd,
+            "email" => $this->email,
+            "created_at" => $this->created_at
+        ];
+    }
+
+    public static function fromArray(array $user): User
+    {
+        $a = new User();
+        return $a->setPseudo($user['pseudo'])
+            ->setPwd($user['pwd'])
+            ->setEmail($user['email']);
     }
 }

@@ -46,7 +46,5 @@ class SigninController
                 }
             }
         }
-
-        require_once implode(DIRECTORY_SEPARATOR, [VIEW, 'sign', 'signin.html.php']);
     }
 }
